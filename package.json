@@ -1,6 +1,6 @@
 {
   "name": "erca",
-  "version": "0.3.6",
+  "version": "0.1.0",
   "description": "Proceso ERCA",
   "author": "Gabriel Llamas",
   "repository": "git://github.com/gagle/erca.git",
@@ -19,7 +19,8 @@
     "serve:ng:dev": "ng serve -c development",
     "postinstall": "node scripts/postinstall && electron-builder install-app-deps",
     "release": "npm run build:prod && electron-builder build --windows --ia32",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
+    "version>bump": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -63,6 +64,7 @@
     "codelyzer": "4.4.4",
     "concurrently": "4.0.1",
     "conventional-changelog-cli": "2.0.5",
+    "conventional-recommended-bump": "4.0.1",
     "copyfiles": "2.1.0",
     "electron": "3.0.1",
     "electron-builder": "20.28.4",
@@ -81,6 +83,7 @@
     "protractor": "5.4.1",
     "rimraf": "2.6.2",
     "rxjs-tslint": "0.1.5",
+    "semver": "5.5.1",
     "spectron": "4.0.0",
     "stylelint": "9.5.0",
     "stylelint-config-prettier": "4.0.0",
