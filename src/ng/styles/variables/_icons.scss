@@ -1,0 +1,9 @@
+@mixin icon {
+  display: inline-block;
+  width: 1em !important;
+  height: 1em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  min-width: 1em;
+}

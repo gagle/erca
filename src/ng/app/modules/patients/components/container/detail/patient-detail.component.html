@@ -1,0 +1,4 @@
+<ng-container *ngIf="patient$ | async as patient" >
+  <app-patient-detail-summary class="section" [patient]="patient"></app-patient-detail-summary>
+  <app-patient-detail-basic class="section" [patient]="patient"></app-patient-detail-basic>
+</ng-container>

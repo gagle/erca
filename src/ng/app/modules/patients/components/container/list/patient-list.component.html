@@ -1,0 +1,12 @@
+<erca-input-search #search [placeholder]="'Buscar paciente'" (onSearch)="onSearch($event)">
+</erca-input-search>
+<erca-paged-list [dataSource]="patientSource" (onChanges)="onListChanges($event)">
+  <app-patient-list-item *pagedListItem="let patient" [patient]="patient" [highlightedText]="highlightSearchTerms">
+  </app-patient-list-item>
+  <div *pagedListEmpty class="list-empty" data-test-id="list-no-data">No hay pacientes</div>
+  <mat-spinner *pagedListFetching diameter="26"></mat-spinner>
+</erca-paged-list>
+<div class="expand-space"></div>
+<div class="list-footer">
+  <a class="button" (click)="openAddPatientDialog()">Añadir paciente</a>
+</div>

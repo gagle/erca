@@ -1,0 +1,28 @@
+.erca-paged-list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+
+  .list {
+    display: block;
+    padding: 0;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .fetching {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+  }
+
+  .empty {
+    height: auto;
+  }
+
+  .hidden {
+    visibility: hidden;
+  }
+}

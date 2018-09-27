@@ -1,0 +1,66 @@
+@import 'theming';
+
+.erca-input-search {
+  padding: 24px;
+  display: block;
+
+  .mat-form-field-wrapper {
+    padding: 0;
+    border: 1px solid $color-light-gray;
+    border-radius: 3px;
+  }
+
+  .mat-form-field-underline {
+    display: none;
+  }
+
+  .mat-form-field-ripple {
+    background-color: transparent;
+  }
+
+  .mat-form-field-flex {
+    height: 32px;
+    align-items: center;
+  }
+
+  .mat-form-field-infix {
+    padding: 0;
+    border: 0;
+    font-size: $fs-normal;
+    font-weight: $fw-medium;
+  }
+
+  .mat-form-field-prefix,
+  .mat-form-field-suffix {
+    display: flex;
+  }
+
+  .mat-form-field {
+    width: 100%;
+
+    .mat-form-field-label {
+      position: static !important;
+      font-weight: $fw-regular;
+      color: $color-secondary-text;
+    }
+  }
+
+  .erca-input-search-icon-search {
+    padding-left: 12px;
+    padding-right: 12px;
+
+    svg {
+      font-size: 26px;
+    }
+  }
+
+  .erca-input-search-icon-clear {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+}

@@ -1,0 +1,21 @@
+<ng-container *ngIf="status$ | async as status">
+  <div class="fetching" *ngIf="status.fetchingTemplateVisible">
+    <ng-container *ngTemplateOutlet="fetchingTemplate">
+    </ng-container>
+  </div>
+  <ng-container *ngIf="items$ | async as items">
+    <mat-nav-list class="list" [class.hidden]="status.fetchingTemplateVisible" infiniteScroll [infiniteScrollDistance]="2"
+      [infiniteScrollDisabled]="!status.fetchEnabled" (scrolled)="onInfiniteScroll()" [scrollWindow]="false" data-test-id="list">
+      <ng-container *ngFor="let item of items">
+        <ng-container *ngTemplateOutlet="itemTemplate; context: { $implicit: item }">
+        </ng-container>
+      </ng-container>
+    </mat-nav-list>
+  </ng-container>
+  <div class="empty" [class.hidden]="status.fetchingTemplateVisible">
+    <ng-container *ngIf="status.emptyTemplateVisible">
+      <ng-container *ngTemplateOutlet="emptyTemplate">
+      </ng-container>
+    </ng-container>
+  </div>
+</ng-container>

@@ -1,0 +1,7 @@
+<div [formGroup]="form">
+  <mat-form-field class="form-field">
+    <input matInput [matDatepicker]="datePicker" ngDefaultControl #dateInput formControlName="date">
+    <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+    <mat-datepicker #datePicker></mat-datepicker>
+  </mat-form-field>
+</div>

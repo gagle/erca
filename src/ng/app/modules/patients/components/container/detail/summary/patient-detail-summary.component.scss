@@ -1,0 +1,22 @@
+@import 'theming';
+
+.app-patient-detail-summary {
+  .patient-content {
+    display: flex;
+    flex-flow: row wrap;
+
+    .erca-text-field {
+      width: 32%;
+      margin-top: 12px;
+
+      & + .erca-text-field {
+        padding-left: 10px;
+      }
+    }
+  }
+
+  .mat-card > .mat-card-actions:last-child {
+    margin: 0;
+    padding: 0;
+  }
+}

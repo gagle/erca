@@ -1,0 +1,49 @@
+@import 'theming';
+
+.app-patient-detail-basic {
+  .mat-card {
+    margin: 24px 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .fields {
+    display: flex;
+    flex-direction: column;
+
+    .field {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      min-height: 64px;
+
+      .item {
+        margin-left: 16px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+
+    .label {
+      font-size: $fs-big;
+      font-weight: $fw-medium;
+      width: 120px;
+
+      &.label-inline {
+        width: inherit;
+      }
+    }
+
+    .mat-divider {
+      margin: 5px 0;
+    }
+  }
+}

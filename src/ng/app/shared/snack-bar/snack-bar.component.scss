@@ -1,0 +1,82 @@
+@import 'theming';
+
+.mat-snack-bar-container {
+  background: none;
+  padding: 0;
+}
+
+.erca-snack-bar {
+  .erca-snack-bar-container {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: stretch;
+    width: 360px;
+    border-radius: 5px;
+    background-color: $color-white;
+
+    .erca-snack-bar-icon-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-content: stretch;
+      justify-content: stretch;
+      min-width: 73px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+
+      .erca-svg-icon {
+        align-self: center;
+        margin: auto;
+        font-size: 32px;
+      }
+    }
+
+    &.success {
+      border: 3px solid $color-status-green;
+      color: rgba(0, 0, 0, 0.87);
+
+      .erca-snack-bar-icon-wrapper {
+        background-color: $color-white;
+
+        svg {
+          color: $color-status-green;
+        }
+      }
+    }
+
+    &.warning {
+      background-color: $color-status-yellow;
+      color: rgba(0, 0, 0, 0.87);
+
+      .erca-snack-bar-icon-wrapper {
+        background-color: $color-status-yellow;
+      }
+    }
+
+    &.error {
+      background-color: $color-status-red;
+      border-color: $color-status-red;
+      color: $color-white;
+
+      .erca-snack-bar-icon-wrapper {
+        background-color: $color-status-red;
+
+        svg {
+          color: $color-white;
+        }
+      }
+    }
+
+    .erca-snack-bar-message {
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+      align-content: stretch;
+      justify-content: stretch;
+      flex: 1;
+      padding: 24px 24px 24px 0;
+      font-size: $fs-big;
+      word-break: break-word;
+    }
+  }
+}

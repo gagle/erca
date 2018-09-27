@@ -1,0 +1,7 @@
+<div mat-dialog-title class="dialog-title">
+  <h1>Informe de paciente</h1>
+  <erca-svg-icon [icon]="CONTENT_COPY" (click)="copyIntoClipboard(true)"></erca-svg-icon>
+</div>
+<div mat-dialog-content class="dialog-content">
+  <textarea #textarea matInput *ngIf="patient$ | async as patient">{{ createPatientReport(patient) }}</textarea>
+</div>

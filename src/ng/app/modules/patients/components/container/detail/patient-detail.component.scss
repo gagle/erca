@@ -1,0 +1,21 @@
+@import 'theming';
+
+.app-patient-detail {
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  .section {
+    margin: 12px 24px 12px 24px;
+
+    &:first-child {
+      margin-top: 24px;
+    }
+
+    &:last-child {
+      margin-bottom: 24px;
+    }
+  }
+}

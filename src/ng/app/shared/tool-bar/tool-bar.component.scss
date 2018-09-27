@@ -1,0 +1,40 @@
+@import 'theming';
+
+.erca-tool-bar {
+  display: block;
+  z-index: 2;
+
+  .erca-tool-bar-flex-spacer {
+    flex: 1 1 auto;
+  }
+
+  .mat-toolbar {
+    background-color: $color-white;
+    padding: 0 24px;
+    height: 50px;
+
+    .erca-tool-bar-app-title {
+      font-weight: 500;
+      font-size: $fs-big;
+
+      &.erca-tool-bar-app-title-without-icon {
+        margin-left: 8px;
+      }
+    }
+
+    .erca-tool-bar-item {
+      margin-right: 20px;
+    }
+
+    .erca-tool-bar-app-logo {
+      margin-right: 12px;
+      font-size: 26px;
+    }
+
+    .erca-tool-bar-roche-logo {
+      width: 1em;
+      height: 1em;
+      font-size: 44px;
+    }
+  }
+}

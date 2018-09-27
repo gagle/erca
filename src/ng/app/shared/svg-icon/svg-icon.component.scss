@@ -1,0 +1,17 @@
+@import 'theming';
+
+.erca-svg-icon {
+  display: flex;
+  align-items: center;
+
+  .svg {
+    display: inline-block;
+    width: 1em !important;
+    height: 1em !important;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+    min-width: 1em;
+    color: $color-secondary-text;
+  }
+}

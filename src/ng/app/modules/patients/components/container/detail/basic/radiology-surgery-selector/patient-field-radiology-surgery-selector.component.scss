@@ -1,0 +1,14 @@
+@import 'theming';
+
+.app-patient-field-radiology-surgery-selector {
+  display: block;
+
+  .mat-button-toggle-checked {
+    background-color: #cce0f5;
+    color: $color-primary-text;
+  }
+
+  .mat-button-toggle-label-content {
+    line-height: 32px;
+  }
+}

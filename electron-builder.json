@@ -1,0 +1,15 @@
+{
+  "appId": "trueta.erca",
+  "productName": "Proceso ERCA",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "build/ng/**/*",
+    "build/electron/**/*"
+  ],
+  "win": {
+    "icon": "build/electron/assets/icon.png",
+    "target": ["nsis"]
+  }
+}

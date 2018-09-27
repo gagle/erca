@@ -1,0 +1,30 @@
+@import 'theming';
+
+.app-patient-export {
+  min-width: 549px;
+  height: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-white;
+  overflow: hidden;
+
+  .erca-svg-icon {
+    margin-left: auto;
+    cursor: pointer;
+  }
+
+  .mat-dialog-content {
+    display: flex;
+    max-height: inherit;
+  }
+
+  textarea {
+    height: 300px;
+    max-height: 65vh;
+    min-height: 100px;
+    background-color: $color-white;
+    border: 1px solid $color-light-gray;
+    padding: 5px;
+  }
+}

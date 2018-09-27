@@ -1,0 +1,8 @@
+<div class="erca-snack-bar-container" [ngClass]="getStatusClassName()">
+  <div class="erca-snack-bar-icon-wrapper">
+    <erca-svg-icon [icon]="statusIcon"></erca-svg-icon>
+  </div>
+  <div class="erca-snack-bar-message">
+    <span>{{ data?.message }}</span>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+@import 'theming';
+
+.app-patient-field-text {
+  display: flex;
+  flex: 1;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .form-field {
+    font-size: $fs-big;
+
+    .mat-form-field-infix {
+      padding: 0.4375em 0 0 0;
+    }
+
+    .mat-form-field-suffix {
+      position: relative;
+      bottom: 2px;
+    }
+
+    textarea {
+      min-height: 18px;
+      height: 18px;
+      margin-top: 2px;
+      margin-bottom: 2px;
+
+      &.mat-input-element {
+        padding: 0;
+      }
+    }
+
+    .erca-svg-icon {
+      font-size: 14px;
+    }
+  }
+}

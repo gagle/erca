@@ -1,0 +1,12 @@
+<form [formGroup]="searchForm">
+  <mat-form-field [floatLabel]="'never'">
+    <erca-svg-icon matPrefix [icon]="searchIcon" class="erca-input-search-icon-search">
+    </erca-svg-icon>
+    <input matInput #searchInput type="text" [placeholder]="placeholder" autocomplete="off" formControlName="search"
+      name="value">
+    <button mat-button *ngIf="displayClearIcon()" matSuffix mat-icon-button aria-label="Clear" (click)="clear()" class="erca-input-search-icon-clear">
+      <erca-svg-icon [icon]="clearIcon">
+      </erca-svg-icon>
+    </button>
+  </mat-form-field>
+</form>

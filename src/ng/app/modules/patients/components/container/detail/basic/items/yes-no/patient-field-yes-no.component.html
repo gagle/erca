@@ -1,0 +1,8 @@
+<mat-button-toggle-group [value]="multiple ? [value] : value" [multiple]="multiple" (change)="onChange($event)">
+  <mat-button-toggle [value]="true">
+    Sí
+  </mat-button-toggle>
+  <mat-button-toggle [value]="false">
+    No
+  </mat-button-toggle>
+</mat-button-toggle-group>

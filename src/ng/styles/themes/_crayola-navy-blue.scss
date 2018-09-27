@@ -1,0 +1,43 @@
+@import '~@angular/material/theming';
+
+$pocit-palette-crayola-navy-blue: (
+  50: #e0edf9,
+  100: #b3d1f0,
+  200: #80b3e6,
+  300: #4d94db,
+  400: #267dd4,
+  500: #06c,
+  600: #005ec7,
+  700: #0053c0,
+  800: #0049b9,
+  900: #0038ad,
+  A100: #d7e1ff,
+  A200: #a4baff,
+  A400: #7194ff,
+  A700: #5881ff,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #fff,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+    A100: #000,
+    A200: #000,
+    A400: #000,
+    A700: #000
+  )
+);
+
+@include mat-core();
+
+$pocit-palette-primary: mat-palette($pocit-palette-crayola-navy-blue);
+$pocit-palette-accent: mat-palette($mat-pink, A200, A100, A400);
+
+$pocit-light-theme: mat-light-theme($pocit-palette-primary, $pocit-palette-accent);
+
+@include angular-material-theme($pocit-light-theme);

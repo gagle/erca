@@ -1,0 +1,6 @@
+<mat-list-item mat-ripple class="list-item" [routerLink]="['./', patient.id]" routerLinkActive="active">
+  <div mat-line class="list-item-info">
+    <span mat-line class="list-item-fullName" [innerHtml]="patient.fullName | ercaHighlight:highlightedText:'highlight-match'"></span>
+    <span mat-line class="list-item-medicalRecordId" [innerHtml]="patient.medicalRecordId | ercaHighlight:highlightedText:'highlight-match'"></span>
+  </div>
+</mat-list-item>

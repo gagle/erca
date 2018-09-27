@@ -1,0 +1,35 @@
+@import 'theming';
+
+.app-patient-field-number {
+  display: block;
+
+  .form-field {
+    font-size: $fs-big;
+    width: 100%;
+
+    .mat-form-field-infix {
+      padding: 0.4375em 0 0 0;
+    }
+
+    .mat-form-field-suffix {
+      position: relative;
+      bottom: 2px;
+    }
+
+    input {
+      height: 18px;
+      padding-bottom: 2px;
+      padding-top: 2px;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+
+  .unit {
+    margin-left: 7px;
+  }
+}

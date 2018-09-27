@@ -1,0 +1,36 @@
+<div mat-dialog-title class="dialog-title">
+  <h1>Nuevo paciente</h1>
+</div>
+<div mat-dialog-content class="dialog-content">
+  <div [formGroup]="patientForm" class="content-group">
+    <mat-form-field [hideRequiredMarker]="true">
+      <input matInput placeholder="Nombre" tabindex="1" formControlName="fullName" ngDefaultControl>
+      <mat-error *ngIf="patientForm.get('fullName')!.hasError('required')">
+        Este campo es obligatorio
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field [hideRequiredMarker]="true">
+      <input matInput placeholder="Historia clínica" tabindex="2" formControlName="medicalRecordId" ngDefaultControl>
+      <mat-error *ngIf="patientForm.get('medicalRecordId')!.hasError('required')">
+        Este campo es obligatorio
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field [hideRequiredMarker]="true">
+      <input matInput [matDatepicker]="birthDatePicker" placeholder="Fecha de nacimiento" tabindex="3" formControlName="birthDate"
+        ngDefaultControl #birthDateInput (focus)="onFocusBirthDatePicker(birthDatePicker)" (keydown.Tab)="onTabKeydown(birthDatePicker)"
+        (keydown.Shift.Tab)="onTabKeydown(birthDatePicker)">
+      <mat-datepicker-toggle matSuffix [for]="birthDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #birthDatePicker (opened)="onOpenPicker()" (closed)="onClosePicker()"></mat-datepicker>
+      <mat-error *ngIf="patientForm.get('birthDate')!.hasError('required')">
+        Este campo es obligatorio
+      </mat-error>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions align="end" class="dialog-actions">
+  <button mat-raised-button color="basic" [disabled]="awaitingResponse" (click)="close()">Cancelar</button>
+  <button mat-raised-button color="primary" [disabled]="!isAddPatientButtonEnabled()" (click)="addPatient(patientForm.value)"
+    cdkFocusInitial>
+    Añadir
+  </button>
+</div>

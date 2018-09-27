@@ -1,0 +1,179 @@
+<mat-card class="mat-elevation-z1">
+  <mat-card-title>Información básica</mat-card-title>
+  <mat-card-content class="fields">
+    <div class="field">
+      <span class="item label">Causa de ERC</span>
+      <app-patient-field-text class="item" [value]="patient.causaErc" (update)="updateCausaErc($event)"></app-patient-field-text>
+    </div>
+
+    <div class="field">
+      <span class="item label">Calidad de vida</span>
+      <app-patient-field-text class="item" [value]="patient.calidadVida" (update)="updateCalidadVida($event)"></app-patient-field-text>
+    </div>
+
+    <div class="field">
+      <span class="item label">Situación familiar/social</span>
+      <app-patient-field-text class="item" [value]="patient.situacionFamiliar" (update)="updateSituacionFamiliar($event)"></app-patient-field-text>
+    </div>
+
+    <div class="field">
+      <span class="item label">Apetito</span>
+      <app-patient-field-yes-no class="item" [value]="patient.apetito" (update)="updateApetito($event)"></app-patient-field-yes-no>
+    </div>
+
+    <div class="field">
+      <span class="item label">Prurito</span>
+      <app-patient-field-yes-no class="item" [value]="patient.prurito" (update)="updatePrurito($event)"></app-patient-field-yes-no>
+    </div>
+
+    <div class="field">
+      <span class="item label">Edemas</span>
+      <app-patient-field-yes-no class="item" [value]="patient.edemas" (update)="updateEdemas($event)"></app-patient-field-yes-no>
+    </div>
+
+    <div class="field">
+      <span class="item label">AMPA</span>
+      <app-patient-field-text class="item" [value]="patient.ampa" (update)="updateAmpa($event)"></app-patient-field-text>
+    </div>
+
+    <div class="field">
+      <span class="item label">Diuresis</span>
+      <app-patient-field-number class="item" unit="ml" [min]="0" [max]="3000" [value]="patient.diuresis" (update)="updateDiuresis($event)"></app-patient-field-number>
+    </div>
+
+    <div class="field">
+      <span class="item label">FG</span>
+      <app-patient-field-number class="item" [min]="0" [max]="20" [value]="patient.fg" (update)="updateFg($event)"></app-patient-field-number>
+      <app-patient-field-date class="item" [value]="patient.fgDate" (update)="updateFgDate($event)"></app-patient-field-date>
+    </div>
+
+    <div class="field">
+      <span class="item label">Serologías</span>
+      <app-patient-field-yes-no class="item" [value]="patient.serologias" (update)="updateSerologias($event)"></app-patient-field-yes-no>
+      <app-patient-field-date class="item" [value]="patient.serologiasDate" (update)="updateSerologiasDate($event)"></app-patient-field-date>
+      <app-patient-field-text class="item" [value]="patient.serologiasNotes" (update)="updateSerologiasNotes($event)"></app-patient-field-text>
+    </div>
+
+    <div class="field">
+      <span class="item label">Vacuna HVB</span>
+      <app-patient-field-yes-no class="item" [value]="patient.hvb" (update)="updateHvb($event)"></app-patient-field-yes-no>
+      <app-patient-field-date class="item" [value]="patient.hvbDate" (update)="updateHvbDate($event)"></app-patient-field-date>
+      <span class="item label label-inline">Inmunidad</span>
+      <app-patient-field-yes-no class="item" [value]="patient.hvbInmunidad" (update)="updateHvbInmunidad($event)"></app-patient-field-yes-no>
+    </div>
+
+    <div class="field">
+      <span class="item label">EPO</span>
+      <app-patient-field-yes-no class="item" [value]="patient.epo" (update)="updateEpo($event)"></app-patient-field-yes-no>
+      <app-patient-field-text class="item" [value]="patient.epoNotes" (update)="updateEpoNotes($event)"></app-patient-field-text>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="mat-elevation-z1">
+  <mat-card-content class="fields">
+    <div class="field">
+      <span class="item label">Proceso educación</span>
+      <app-patient-field-yes-no class="item" [value]="patient.procesoEducacion" [multiple]="false" (update)="updateProcesoEducacion($event)"></app-patient-field-yes-no>
+    </div>
+
+    <ng-container *ngIf="patient.procesoEducacion === true">
+      <div class="field">
+        <span class="item label">Conservador</span>
+        <app-patient-field-yes-no class="item" [value]="patient.conservador" (update)="updateConservador($event)"></app-patient-field-yes-no>
+        <app-patient-field-text class="item" [value]="patient.conservadorNotes" (update)="updateConservadorNotes($event)"></app-patient-field-text>
+      </div>
+      <div class="field">
+        <span class="item label">Trasplante anticipado</span>
+        <app-patient-field-yes-no class="item" [value]="patient.trasplanteAnticipado" (update)="updateTrasplanteAnticipado($event)"></app-patient-field-yes-no>
+        <app-patient-field-text class="item" [value]="patient.trasplanteAnticipadoNotes" (update)="updateTrasplanteAnticipadoNotes($event)"></app-patient-field-text>
+      </div>
+      <div class="field">
+        <span class="item label">Tratamiento renal sustitutivo</span>
+        <app-patient-field-tratamiento-renal-sustitutivo-selector class="item" [value]="patient.tratamientoRenalSustitutivo"
+          (update)="updateTratamientoRenalSustitutivo($event)"></app-patient-field-tratamiento-renal-sustitutivo-selector>
+      </div>
+    </ng-container>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="mat-elevation-z1" *ngIf="patient.procesoEducacion && patient.tratamientoRenalSustitutivo === 'dialisisPeritoneal'">
+  <mat-card-title>Diálisis peritoneal</mat-card-title>
+  <mat-card-content class="fields">
+    <div class="field">
+      <span class="item label">Hérnias</span>
+      <app-patient-field-yes-no class="item" [value]="patient.hernias" (update)="updateHernias($event)"></app-patient-field-yes-no>
+      <app-patient-field-text class="item" [value]="patient.herniasNotes" (update)="updateHerniasNotes($event)"></app-patient-field-text>
+    </div>
+
+    <div class="field">
+      <span class="item label">Catéter peritoneal</span>
+      <app-patient-field-radiology-surgery-selector class="item" [value]="patient.cateterPeritoneal" (update)="updateCateterPeritoneal($event)"></app-patient-field-radiology-surgery-selector>
+    </div>
+
+    <div class="field">
+      <span class="item label">Coagulación</span>
+      <app-patient-field-yes-no class="item" [value]="patient.coagulacionDialisis" (update)="updateDialisisCoagulacion($event)"></app-patient-field-yes-no>
+      <app-patient-field-date class="item" [value]="patient.coagulacionDialisisDate" (update)="updateDialisisCoagulacionDate($event)"></app-patient-field-date>
+      <app-patient-field-text class="item" [value]="patient.coagulacionDialisisNotes" (update)="updateDialisisCoagulacionNotes($event)"></app-patient-field-text>
+    </div>
+
+    <div class="field">
+      <span class="item label">Medicación antigoagulante</span>
+      <app-patient-field-yes-no class="item" [value]="patient.medicacionAnticoagulanteDialisis" (update)="updateMedicacionAnticoagulanteDialisis($event)"></app-patient-field-yes-no>
+    </div>
+
+    <div class="field">
+      <span class="item label">Ingreso</span>
+      <app-patient-field-date class="item" [value]="patient.ingreso" (update)="updateIngreso($event)"></app-patient-field-date>
+    </div>
+
+    <div class="field">
+      <span class="item label">Consentimiento informado</span>
+      <app-patient-field-yes-no class="item" [value]="patient.consentimientoInformadoDialisis" (update)="updatConsentimientoInformadoDialisis($event)"></app-patient-field-yes-no>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="mat-elevation-z1" *ngIf="patient.procesoEducacion && patient.tratamientoRenalSustitutivo === 'hemodialisis'">
+  <mat-card-title>Hemodiálisis</mat-card-title>
+  <mat-card-content class="fields">
+    <div class="field">
+      <span class="item label">Mapeo FAVI</span>
+      <app-patient-field-yes-no class="item" [value]="patient.mapeoFavi" (update)="updateMapeoFavi($event)"></app-patient-field-yes-no>
+      <app-patient-field-date class="item" [value]="patient.mapeoFaviDate" (update)="updateMapeoFaviDate($event)"></app-patient-field-date>
+      <app-patient-field-text class="item" [value]="patient.mapeoFaviNotes" (update)="updateMapeoFaviNotes($event)"></app-patient-field-text>
+    </div>
+
+    <div class="field">
+      <span class="item label">FAVI</span>
+      <app-patient-field-yes-no class="item" [value]="patient.favi" (update)="updateFavi($event)"></app-patient-field-yes-no>
+      <app-patient-field-date class="item" [value]="patient.faviDate" (update)="updateFaviDate($event)"></app-patient-field-date>
+      <app-patient-field-text class="item" [value]="patient.faviNotes" (update)="updateFaviNotes($event)"></app-patient-field-text>
+    </div>
+
+    <div class="field">
+      <span class="item label">Catéter central</span>
+      <app-patient-field-yes-no class="item" [value]="patient.cateterCentral" (update)="updateCateterCentral($event)"></app-patient-field-yes-no>
+      <app-patient-field-date class="item" [value]="patient.cateterCentralDate" (update)="updateCateterCentralDate($event)"></app-patient-field-date>
+      <app-patient-field-text class="item" [value]="patient.cateterCentralNotes" (update)="updateCateterCentralNotes($event)"></app-patient-field-text>
+    </div>
+
+    <div class="field">
+      <span class="item label">Coagulación</span>
+      <app-patient-field-yes-no class="item" [value]="patient.coagulacionHemodialisis" (update)="updateHemodialisisCoagulacion($event)"></app-patient-field-yes-no>
+      <app-patient-field-date class="item" [value]="patient.coagulacionHemodialisisDate" (update)="updateHemodialisisCoagulacionDate($event)"></app-patient-field-date>
+      <app-patient-field-text class="item" [value]="patient.coagulacionHemodialisisNotes" (update)="updateHemodialisisCoagulacionNotes($event)"></app-patient-field-text>
+    </div>
+
+    <div class="field">
+      <span class="item label">Medicación anticoagulante</span>
+      <app-patient-field-yes-no class="item" [value]="patient.medicacionAnticoagulanteHemodialisis" (update)="updateMedicacionAnticoagulanteHemodialisis($event)"></app-patient-field-yes-no>
+    </div>
+
+    <div class="field">
+      <span class="item label">Consentimiento informado</span>
+      <app-patient-field-yes-no class="item" [value]="patient.consentimientoInformadoHemodialisis" (update)="updatConsentimientoInformadoHemodialisis($event)"></app-patient-field-yes-no>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,29 @@
+@import 'theming';
+
+.app-patient-add {
+  min-width: 549px;
+  height: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-white;
+  overflow: hidden;
+
+  .mat-dialog-content {
+    .content-group {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      & + .content-group {
+        margin-top: 24px;
+      }
+
+      .mat-form-field {
+        & + .mat-form-field {
+          padding-left: 24px;
+        }
+      }
+    }
+  }
+}

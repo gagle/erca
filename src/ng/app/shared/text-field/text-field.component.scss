@@ -1,0 +1,15 @@
+@import 'theming';
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.erca-text-field-title {
+  color: $color-secondary-text;
+  padding-bottom: 4px;
+}
+
+.erca-text-field-content {
+  font-size: $fs-big;
+}

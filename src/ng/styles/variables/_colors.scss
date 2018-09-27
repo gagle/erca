@@ -1,0 +1,47 @@
+@import '~@angular/material/theming';
+
+// Status colors: ok, warning, alarm
+$color-status-green: #00875a;
+$color-status-yellow: #ffc414;
+$color-status-red: #c03;
+
+// Colors for active assets
+$color-royal-blue: #004ea3;
+$color-default-active: #cce0f5;
+$color-lightsky-blue: #a5d2ff;
+$color-azure-white: #f1f6fa;
+
+// Colors for selections
+$color-selected-blue: #06c;
+$color-selected-black: #191919;
+$color-default-hover: #efefef;
+
+// General purpose colors for text
+$color-black: #333;
+$color-dim-gray: #4d4d4d;
+$color-gray: #737373;
+$color-dark-gray: #8d8d8d;
+$color-silver: #bababa;
+$color-light-gray: #d3d3d3;
+$color-gainsboro: #e8e8e8;
+
+// Background colors
+$color-snow: #fafafa;
+$color-white: #fff;
+
+// General purpose colors
+$color-purple: #530559;
+$color-vivid-violet: #8b0e8e;
+$color-steel-blue: #09647a;
+$color-cerulean: #058ccf;
+$color-sea-green: #0f7a49;
+$color-caribbean-green: #05ad75;
+$color-bloody-red: #c50200;
+$color-red-orange: #d35500;
+$color-orange: #f27314;
+$color-teal-blue: #1e8787;
+$color-dark-turquoise: #27b6c1;
+
+// Text colors
+$color-primary-text: $dark-primary-text;
+$color-secondary-text: $dark-secondary-text;

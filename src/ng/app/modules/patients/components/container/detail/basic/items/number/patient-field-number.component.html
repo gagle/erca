@@ -1,0 +1,6 @@
+<div [formGroup]="form">
+  <mat-form-field class="form-field">
+    <input matInput type="number" autocomplete="off" formControlName="number">
+    <span *ngIf="unit" matSuffix class="unit">{{ unit }}</span>
+  </mat-form-field>
+</div>

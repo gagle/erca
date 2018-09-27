@@ -1,0 +1,24 @@
+.app-patient-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .mat-drawer-container {
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+
+    .mat-drawer {
+      display: flex;
+      flex-direction: column;
+      width: 350px;
+      padding: 24px;
+      background-color: transparent;
+      overflow-x: hidden;
+    }
+
+    .mat-drawer-content {
+      margin-left: 326px !important;
+    }
+  }
+}

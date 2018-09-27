@@ -1,0 +1,13 @@
+<mat-toolbar class="mat-elevation-z2">
+  <erca-svg-icon *ngIf="appIcon" [icon]="appIcon" class="erca-tool-bar-app-logo"></erca-svg-icon>
+  <span class="erca-tool-bar-app-title" [class.erca-tool-bar-app-title-without-icon]="!appIcon" data-test-id='landing-page-title'>
+    {{ appTitle }}
+  </span>
+  <span class="erca-tool-bar-flex-spacer"></span>
+  <ng-container *ngFor="let itemTemplateRef of itemListTemplateRef">
+    <div class="erca-tool-bar-item">
+      <ng-container *ngTemplateOutlet="itemTemplateRef">
+      </ng-container>
+    </div>
+  </ng-container>
+</mat-toolbar>

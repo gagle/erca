@@ -1,0 +1,13 @@
+<mat-card class="mat-elevation-z1">
+  <mat-card-title>Paciente</mat-card-title>
+  <mat-card-content>
+    <div class="patient-content">
+      <erca-text-field [title]="'Nombre'" [content]="patient.fullName"></erca-text-field>
+      <erca-text-field [title]="'Historia clínica'" [content]="patient.medicalRecordId"></erca-text-field>
+      <erca-text-field [title]="'Fecha de nacimiento'" [content]="patient.birthDate | date:'dd MMMM yyyy'"></erca-text-field>
+    </div>
+  </mat-card-content>
+  <mat-card-actions align="right">
+    <button mat-raised-button color="primary" (click)="export()">Exportar</button>
+  </mat-card-actions>
+</mat-card>
