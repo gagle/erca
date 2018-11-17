@@ -1,4 +1,5 @@
-import { app, BrowserWindow, ipcMain, IpcMessageEvent } from 'electron';
+import { app, BrowserWindow } from 'electron';
+import { initHistoryStack } from './url-bar-history';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -30,23 +31,8 @@ app.on('ready', () => {
     mainWindow = null;
   });
 
-  initHistory(mainWindow);
+  initHistoryStack(mainWindow);
 });
-
-let historyStack: string[] = [];
-
-function initHistory(mainWindow: BrowserWindow): void {
-  ipcMain.on(
-    'history-update',
-    (event: IpcMessageEvent, newHistoryStack: string[]) => {
-      historyStack = [...newHistoryStack];
-    }
-  );
-
-  ipcMain.on('history-load', () => {
-    mainWindow.webContents.send('history-loaded', historyStack);
-  });
-}
 
 app.on('window-all-closed', () => {
   app.quit();
