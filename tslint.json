@@ -29,7 +29,7 @@
     ],
     "interface-over-type-literal": true,
     "label-position": true,
-    "member-access": [true, "check-accessor", "check-constructor", "check-parameter-property"],
+    "member-access": [true, "no-public"],
     "no-arg": true,
     "no-bitwise": true,
     "no-console": [

@@ -31,11 +31,11 @@ export class ErcaUrlBarComponent implements OnInit {
   }
 
   @HostBinding('class.erca-url-bar')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
-  public navigating = false;
+  navigating = false;
 
-  public readonly urlForm = this.formBuilder.group({
+  readonly urlForm = this.formBuilder.group({
     url: null
   });
 
@@ -43,14 +43,14 @@ export class ErcaUrlBarComponent implements OnInit {
   private isUrlFocused = false;
   private currentUrl = this.location.path();
 
-  public constructor(
+  constructor(
     private location: Location,
     private formBuilder: FormBuilder,
     @Inject(DOCUMENT) private document: Document,
     private router: Router
   ) {}
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.urlControl.setValue(this.location.path() || this.homeUrl);
 
     this.location.subscribe(event => {
@@ -92,39 +92,39 @@ export class ErcaUrlBarComponent implements OnInit {
   }
 
   @HostListener('document:keyup.enter')
-  public onEnterKeyHandler(): void {
+  onEnterKeyHandler(): void {
     if (this.isUrlFocused) {
       this.router.navigate([this.currentUrl]);
     }
   }
 
-  public get url(): string {
+  get url(): string {
     return this.currentUrl;
   }
 
-  public back(): void {
+  back(): void {
     this.location.back();
   }
 
-  public forward(): void {
+  forward(): void {
     this.location.forward();
   }
 
-  public reload(): void {
+  reload(): void {
     if (this.document.location) {
       this.document.location.reload();
     }
   }
 
-  public goHome(): void {
+  goHome(): void {
     this.router.navigate([this.homeUrl]);
   }
 
-  public onFocusIn(): void {
+  onFocusIn(): void {
     this.isUrlFocused = true;
   }
 
-  public onFocusOut(): void {
+  onFocusOut(): void {
     this.isUrlFocused = false;
   }
 }
