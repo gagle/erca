@@ -34,7 +34,6 @@ export class ErcaUrlBarComponent implements OnInit {
   public readonly hostClass = true;
 
   public navigating = false;
-  public willNavigate = false;
 
   public readonly urlForm = this.formBuilder.group({
     url: null
@@ -76,29 +75,25 @@ export class ErcaUrlBarComponent implements OnInit {
         this.currentUrl = url;
       });
 
-    this.router.events
-      .pipe(filter(() => this.willNavigate))
-      .subscribe(event => {
-        if (event instanceof NavigationStart) {
-          this.navigating = true;
-        } else if (event instanceof RoutesRecognized) {
-        } else if (
-          event instanceof NavigationEnd ||
-          event instanceof NavigationError
-        ) {
-          this.navigating = false;
-          this.willNavigate = false;
-          this.urlControl.setValue(
-            event instanceof NavigationEnd ? event.urlAfterRedirects : event.url
-          );
-        }
-      });
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.navigating = true;
+      } else if (event instanceof RoutesRecognized) {
+      } else if (
+        event instanceof NavigationEnd ||
+        event instanceof NavigationError
+      ) {
+        this.navigating = false;
+        this.urlControl.setValue(
+          event instanceof NavigationEnd ? event.urlAfterRedirects : event.url
+        );
+      }
+    });
   }
 
   @HostListener('document:keyup.enter')
   public onEnterKeyHandler(): void {
     if (this.isUrlFocused) {
-      this.willNavigate = true;
       this.router.navigate([this.currentUrl]);
     }
   }
