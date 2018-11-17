@@ -19,9 +19,12 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "plugins": [{
+      "name": "@angular/language-service"
+    }]
   },
   "include": [
-    "src/ng/**/*.ts"
+    "src/**/*.ts"
   ]
 }

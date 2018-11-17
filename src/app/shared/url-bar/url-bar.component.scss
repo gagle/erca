@@ -1,0 +1,59 @@
+@import 'theming';
+
+.erca-url-bar {
+  .url {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    margin: 0 16px;
+  }
+
+  input {
+    margin-left: 16px;
+  }
+
+  .mat-toolbar {
+    height: 48px;
+  }
+
+  .mat-form-field-wrapper {
+    padding: 0;
+    border: 1px solid $color-light-gray;
+    border-radius: 16px;
+  }
+
+  .mat-form-field-underline {
+    display: none;
+  }
+
+  .mat-form-field-ripple {
+    background-color: transparent;
+  }
+
+  .mat-form-field-flex {
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .mat-form-field-infix {
+    padding: 0;
+    border: 0;
+    font-size: $fs-normal;
+    font-weight: $fw-medium;
+  }
+
+  .mat-form-field-prefix,
+  .mat-form-field-suffix {
+    display: flex;
+  }
+
+  .mat-form-field {
+    width: 100%;
+    .mat-form-field-label {
+      position: static !important;
+      font-weight: $fw-regular;
+      color: $color-secondary-text;
+    }
+  }
+}

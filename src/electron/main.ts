@@ -1,26 +1,33 @@
 import { app, BrowserWindow } from 'electron';
 
+const isDevelopment = process.env.NODE_ENV === 'development';
+
 app.on('ready', () => {
-  let win: BrowserWindow | null = new BrowserWindow({
+  let mainWindow: BrowserWindow | null = new BrowserWindow({
     center: true,
     width: 1024,
-    height: 800,
-    title: 'Proceso ERCA'
+    height: 728,
+    title: 'Proceso ERCA',
+    backgroundColor: '#f1f6fa',
+    webPreferences: {
+      devTools: isDevelopment
+    }
   });
 
-  if (process.argv.includes('--dev')) {
+  if (isDevelopment) {
     require('electron-reload')(__dirname, {
       electron: require(`${__dirname}/../../node_modules/electron`)
     });
-    win.loadURL('http://localhost:4200');
-
-    win.webContents.openDevTools();
+    mainWindow.loadURL('http://localhost:4200');
+    mainWindow.webContents.openDevTools();
   } else {
-    win.loadURL(`file://${__dirname}/../ng/index.html`);
+    mainWindow.loadURL(`file://${__dirname}/../ng/index.html`);
   }
 
-  win.on('closed', () => {
-    win = null;
+  mainWindow.maximize();
+
+  mainWindow.on('closed', () => {
+    mainWindow = null;
   });
 });
 

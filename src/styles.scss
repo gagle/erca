@@ -1,0 +1,43 @@
+@import './styles/styles';
+@import './styles/theming';
+
+.mat-dialog-container {
+  padding: 0 !important;
+  height: auto !important;
+}
+
+.mat-dialog-title.dialog-title {
+  padding-left: 24px;
+  padding-right: 24px;
+  min-height: 50px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: $fs-bigger;
+
+  & > * {
+    font-size: 18px;
+    font-weight: $fw-medium;
+    color: $color-primary-text;
+    align-items: center;
+  }
+}
+
+.mat-dialog-content.dialog-content {
+  background-color: $color-snow;
+  border-top: 1px solid $color-light-gray;
+  min-width: 549px;
+  margin: 0;
+  padding: 24px;
+}
+
+.mat-dialog-actions.dialog-actions {
+  border-top: 1px solid $color-light-gray;
+  margin-bottom: 0 !important;
+  padding: 24px;
+
+  button + button {
+    margin-left: 24px !important;
+  }
+}

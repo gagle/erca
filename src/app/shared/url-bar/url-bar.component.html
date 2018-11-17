@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="back()" [attr.disabled]="navigating ? '' : null">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <button mat-icon-button (click)="forward()" [attr.disabled]="navigating ? '' : null">
+    <mat-icon>arrow_forward</mat-icon>
+  </button>
+  <button mat-icon-button (click)="reload()" [attr.disabled]="navigating ? '' : null">
+    <mat-icon>refresh</mat-icon>
+  </button>
+  <button mat-icon-button (click)="goHome()" [attr.disabled]="navigating ? '' : null">
+    <mat-icon>home</mat-icon>
+  </button>
+  <form class="url" [formGroup]="urlForm" [attr.disabled]="navigating ? '' : null">
+    <mat-form-field [floatLabel]="'never'">
+      <input matInput type="text" formControlName="url" (focus)="onFocusIn()" (focusout)="onFocusOut()" autocomplete="off" />
+    </mat-form-field>
+  </form>
+</mat-toolbar>

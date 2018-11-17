@@ -9,7 +9,7 @@
     "build/electron/**/*"
   ],
   "win": {
-    "icon": "build/electron/assets/icon.png",
-    "target": ["nsis"]
+    "icon": "build/electron/assets/app.png",
+    "target": ["portable"]
   }
 }

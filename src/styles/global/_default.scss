@@ -1,0 +1,16 @@
+@import '../variables/index';
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  color: $color-primary-text;
+  font-size: $fs-normal;
+  font-weight: $fw-regular;
+}
