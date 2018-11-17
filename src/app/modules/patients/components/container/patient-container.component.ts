@@ -14,5 +14,5 @@ import {
 })
 export class PatientContainerComponent {
   @HostBinding('class.app-patient-container')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 }

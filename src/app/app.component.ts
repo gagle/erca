@@ -9,10 +9,10 @@ import { PatientRepository } from './modules/patients/services/repository/patien
 })
 export class AppComponent {
   @HostBinding('class.app-root')
-  public readonly hostClass = true;
-  public readonly isDevelopment = !environment.production;
+  readonly hostClass = true;
+  readonly isDevelopment = !environment.production;
 
-  public constructor(patientRepository: PatientRepository) {
+  constructor(patientRepository: PatientRepository) {
     patientRepository.setup();
   }
 }

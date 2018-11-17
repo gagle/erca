@@ -13,7 +13,7 @@
  */
 
 export abstract class AbstractError extends Error {
-  public constructor(message?: string) {
+  constructor(message?: string) {
     super(message) /* istanbul ignore next */;
 
     this.name = new.target.name;

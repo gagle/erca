@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class EventLoop {
-  public onNextTick(): Observable<void> {
+  onNextTick(): Observable<void> {
     return Observable.create((observer: Subject<void>) => {
       setTimeout(() => {
         observer.next();

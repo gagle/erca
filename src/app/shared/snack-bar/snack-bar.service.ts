@@ -7,9 +7,9 @@ import { ErcaSnackBarComponent } from './snack-bar.component';
   providedIn: 'root'
 })
 export class SnackBarService {
-  public constructor(private snackBar: MatSnackBar) {}
+  constructor(private snackBar: MatSnackBar) {}
 
-  public open(
+  open(
     status: SnackBarStatus,
     message: string
   ): MatSnackBarRef<ErcaSnackBarComponent> {
@@ -24,15 +24,15 @@ export class SnackBarService {
     });
   }
 
-  public openSuccess(message: string): MatSnackBarRef<ErcaSnackBarComponent> {
+  openSuccess(message: string): MatSnackBarRef<ErcaSnackBarComponent> {
     return this.open(SnackBarStatus.SUCCESS, message);
   }
 
-  public openWarning(message: string): MatSnackBarRef<ErcaSnackBarComponent> {
+  openWarning(message: string): MatSnackBarRef<ErcaSnackBarComponent> {
     return this.open(SnackBarStatus.WARNING, message);
   }
 
-  public openError(message: string): MatSnackBarRef<ErcaSnackBarComponent> {
+  openError(message: string): MatSnackBarRef<ErcaSnackBarComponent> {
     return this.open(SnackBarStatus.ERROR, message);
   }
 }

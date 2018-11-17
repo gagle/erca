@@ -21,33 +21,33 @@ import { EDIT } from '../../../../../../../../icons';
 })
 export class PatientFieldTextComponent implements OnInit {
   @HostBinding('class.app-patient-field-text')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
-  public readonly EDIT = EDIT;
+  readonly EDIT = EDIT;
 
-  public readonly form = this.formBuilder.group({
+  readonly form = this.formBuilder.group({
     text: ['']
   });
 
   @Output()
-  public readonly update = new EventEmitter<string>(true);
+  readonly update = new EventEmitter<string>(true);
 
   private readonly debounceTimeMs = 300;
 
   @Input()
-  public get value(): string | null {
+  get value(): string | null {
     return this._value;
   }
-  public set value(val: string | null) {
+  set value(val: string | null) {
     this.getControl().setValue(val, { emitEvent: false });
     this._value = val;
   }
 
   private _value: string | null = null;
 
-  public constructor(private readonly formBuilder: FormBuilder) {}
+  constructor(private readonly formBuilder: FormBuilder) {}
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.getControl()
       .valueChanges.pipe(debounceTime(this.debounceTimeMs))
       .subscribe((text: string) => {

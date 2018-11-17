@@ -33,7 +33,7 @@ export interface FetchOptions {
 
 export class PagedDataSource<T = any, S = any> {
   // tslint:disable-next-line:max-line-length
-  public static readonly INITIAL_STATUS = PagedDataSource.createInitialDataSourceStatus();
+  static readonly INITIAL_STATUS = PagedDataSource.createInitialDataSourceStatus();
 
   private items: T[] = [];
   private items$ = new ReplaySubject<T[]>(1);
@@ -53,10 +53,7 @@ export class PagedDataSource<T = any, S = any> {
   private fetchChangeOrigin = this.getFetchChangeOrigin({});
   private fetch: (page: PageEvent, predicate: Partial<S>) => Observable<T[]>;
 
-  public constructor({
-    pageSize,
-    fetch
-  }: PagedDataSourceConstructorOptions<T, S>) {
+  constructor({ pageSize, fetch }: PagedDataSourceConstructorOptions<T, S>) {
     this.fetch = fetch;
     this.pageSize = pageSize;
 
@@ -127,25 +124,25 @@ export class PagedDataSource<T = any, S = any> {
     };
   }
 
-  public onItems(): Observable<T[]> {
+  onItems(): Observable<T[]> {
     return this.items$.asObservable();
   }
 
-  public onChanges(): Observable<PagedDataSourceStatus> {
+  onChanges(): Observable<PagedDataSourceStatus> {
     return this.changes$.asObservable();
   }
 
-  public onError(): Observable<Error> {
+  onError(): Observable<Error> {
     return this.error$.asObservable();
   }
 
-  public nextPage(): void {
+  nextPage(): void {
     if (!this.isLastPage) {
       this.goToPage(this.page + 1);
     }
   }
 
-  public goToPage(page: number, pageSize?: number): void {
+  goToPage(page: number, pageSize?: number): void {
     if (!this.isFetching) {
       this.page = page;
       this.isFetchingPage = true;
@@ -154,19 +151,19 @@ export class PagedDataSource<T = any, S = any> {
     }
   }
 
-  public goToFirstPage(): void {
+  goToFirstPage(): void {
     this.goToPage(1);
   }
 
-  public getCurrentPage(): number {
+  getCurrentPage(): number {
     return this.page;
   }
 
-  public getPageSize(): number {
+  getPageSize(): number {
     return this.pageSize;
   }
 
-  public where(
+  where(
     predicate: Partial<S>,
     { fetch }: FetchOptions = { fetch: true }
   ): void {
@@ -177,7 +174,7 @@ export class PagedDataSource<T = any, S = any> {
     }
   }
 
-  public removePredicateElement(
+  removePredicateElement(
     predicateElement: string,
     { fetch }: FetchOptions = { fetch: true }
   ): void {
@@ -188,32 +185,32 @@ export class PagedDataSource<T = any, S = any> {
     }
   }
 
-  public getPredicate(): Partial<S> {
+  getPredicate(): Partial<S> {
     return this.predicate.toJS() as Partial<S>;
   }
 
-  public getItems(): T[] {
+  getItems(): T[] {
     return this.items;
   }
 
-  public setItems(items: T[]): void {
+  setItems(items: T[]): void {
     this.items = items;
     this.notifyItems();
   }
 
-  public fetchCurrentPage(): void {
+  fetchCurrentPage(): void {
     this.items = [];
     this.goToPage(this.page);
   }
 
-  public refresh(): void {
+  refresh(): void {
     this.refreshed = true;
     this.stagedPage = this.page;
     this.items = [];
     this.goToPage(1, this.page * this.pageSize);
   }
 
-  public reset({ fetch }: FetchOptions = { fetch: true }): void {
+  reset({ fetch }: FetchOptions = { fetch: true }): void {
     this.page = 1;
     this.predicate = Immutable.Map<string, any>();
     this.isLastPage = false;

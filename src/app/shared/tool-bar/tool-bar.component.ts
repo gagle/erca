@@ -21,13 +21,13 @@ import { ErcaToolBarItemDirective } from './tool-bar-item.directive';
 })
 export class ErcaToolBarComponent {
   @HostBinding('class.erca-tool-bar')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
   @ContentChildren(ErcaToolBarItemDirective, { read: TemplateRef })
-  public readonly itemListTemplateRef!: QueryList<TemplateRef<any>>;
+  readonly itemListTemplateRef!: QueryList<TemplateRef<any>>;
 
   @Input()
-  public appIcon?: SvgIcon;
+  appIcon?: SvgIcon;
   @Input()
-  public appTitle = '';
+  appTitle = '';
 }

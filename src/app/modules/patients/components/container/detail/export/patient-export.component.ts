@@ -30,17 +30,17 @@ export interface PatientExportDialogData {
 })
 export class PatientExportComponent implements OnInit, AfterViewInit {
   @HostBinding('class.app-patient-export')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
   @ViewChild('textarea')
-  public readonly textarea!: ElementRef<HTMLTextAreaElement>;
+  readonly textarea!: ElementRef<HTMLTextAreaElement>;
 
-  public readonly CONTENT_COPY = CONTENT_COPY;
-  public patient$!: Observable<Patient>;
+  readonly CONTENT_COPY = CONTENT_COPY;
+  patient$!: Observable<Patient>;
 
   private readonly patientId = this.dialogData.patientId;
 
-  public constructor(
+  constructor(
     @Inject(MAT_DIALOG_DATA)
     private readonly dialogData: PatientExportDialogData,
     @Inject(DOCUMENT) private readonly document: Document,
@@ -50,16 +50,16 @@ export class PatientExportComponent implements OnInit, AfterViewInit {
     private readonly patientReport: TextReportService
   ) {}
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.patient$ = this.patientRepository.getPatientById(this.patientId);
   }
 
-  public ngAfterViewInit(): void {
+  ngAfterViewInit(): void {
     this.copyIntoClipboard();
     this.changeDetector.detach();
   }
 
-  public copyIntoClipboard(openSnackBar?: boolean): void {
+  copyIntoClipboard(openSnackBar?: boolean): void {
     this.textarea.nativeElement.select();
     this.document.execCommand('copy');
     this.textarea.nativeElement.setSelectionRange(0, 0);
@@ -69,7 +69,7 @@ export class PatientExportComponent implements OnInit, AfterViewInit {
     }
   }
 
-  public createPatientReport(patient: Patient): string {
+  createPatientReport(patient: Patient): string {
     return this.patientReport.create(patient);
   }
 }

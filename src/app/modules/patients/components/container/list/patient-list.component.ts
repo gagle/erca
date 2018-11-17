@@ -25,45 +25,45 @@ import { PatientAddComponent } from './add/patient-add.component';
 })
 export class PatientListComponent implements OnInit, OnDestroy {
   @HostBinding('class.app-patient-list')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
   @HostBinding('class.expand-list')
-  public expandList = true;
+  expandList = true;
 
   @ViewChild('search')
-  public readonly inputSearch!: ErcaInputSearchComponent;
+  readonly inputSearch!: ErcaInputSearchComponent;
 
-  public readonly patientSource = this.patientStore.getPatientSource();
-  public highlightSearchTerms = '';
+  readonly patientSource = this.patientStore.getPatientSource();
+  highlightSearchTerms = '';
 
   private readonly destroy$ = new Subject<void>();
 
-  public constructor(
+  constructor(
     private readonly router: Router,
     private readonly dialog: MatDialog,
     private readonly patientStore: PatientStore
   ) {}
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.patientSource.reset();
   }
 
-  public ngOnDestroy(): void {
+  ngOnDestroy(): void {
     this.clearSearch();
     this.destroy$.next();
     this.destroy$.complete();
   }
 
-  public onListChanges(status: PagedViewStatus): void {
+  onListChanges(status: PagedViewStatus): void {
     this.expandList = status.firstFetch;
   }
 
-  public onSearch(terms: string): void {
+  onSearch(terms: string): void {
     this.highlightSearchTerms = terms;
     this.patientSource.where({ search: terms });
   }
 
-  public openAddPatientDialog(): void {
+  openAddPatientDialog(): void {
     this.dialog
       .open(PatientAddComponent)
       .afterClosed()

@@ -16,7 +16,7 @@ export class FsPatientRepository implements PatientRepository {
   private readonly fileName = 'patients.json';
   private patients: Patient[] = [];
 
-  public async setup(): Promise<void> {
+  async setup(): Promise<void> {
     try {
       const fileContent: StorageFile = await readJson(this.fileName);
 
@@ -33,19 +33,19 @@ export class FsPatientRepository implements PatientRepository {
     }
   }
 
-  public getPatientById(id: string): Observable<Patient> {
+  getPatientById(id: string): Observable<Patient> {
     const patientFound = this.patients.find(patient => patient.id === id);
     return patientFound
       ? of(patientFound)
       : throwError(new PatientError(`Patient id '${id}' not found`));
   }
 
-  public getPatients(page: number, size: number): Observable<Patient[]> {
+  getPatients(page: number, size: number): Observable<Patient[]> {
     const offset = (page - 1) * size;
     return of(this.patients.slice(offset, offset + size));
   }
 
-  public getPatientsBySearch(
+  getPatientsBySearch(
     page: number,
     size: number,
     terms: string
@@ -63,7 +63,7 @@ export class FsPatientRepository implements PatientRepository {
     );
   }
 
-  public addPatient(patient: Patient): Observable<Patient> {
+  addPatient(patient: Patient): Observable<Patient> {
     const newPatient = new Patient({
       ...patient,
       id: uuid()
@@ -72,7 +72,7 @@ export class FsPatientRepository implements PatientRepository {
     return from(this.updateFile()).pipe(map(() => newPatient));
   }
 
-  public updatePatient(patient: Patient): Observable<Patient> {
+  updatePatient(patient: Patient): Observable<Patient> {
     console.log(patient);
     const index = this.patients.findIndex(
       innerPatient => innerPatient.id === patient.id

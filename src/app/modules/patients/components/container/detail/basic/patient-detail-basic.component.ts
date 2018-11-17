@@ -22,24 +22,24 @@ import { PatientRepository } from '../../../../services/repository/patient-repos
 })
 export class PatientDetailBasicComponent implements OnChanges {
   @HostBinding('class.app-patient-detail-basic')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
   @Input()
-  public patient!: Patient;
+  patient!: Patient;
 
-  public constructor(
+  constructor(
     private readonly patientRepository: PatientRepository,
     private readonly snackBar: SnackBarService
   ) {}
 
-  public ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(changes: SimpleChanges): void {
     assertTruthy(
       changes.patient.currentValue,
       new RequiredInputError('Missing patient')
     );
   }
 
-  public updateCausaErc(value: string): void {
+  updateCausaErc(value: string): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, causaErc: value }))
       .subscribe(
@@ -50,7 +50,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateApetito(value: boolean): void {
+  updateApetito(value: boolean): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, apetito: value }))
       .subscribe(
@@ -61,7 +61,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updatePrurito(value: boolean): void {
+  updatePrurito(value: boolean): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, prurito: value }))
       .subscribe(
@@ -72,7 +72,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateAmpa(value: string): void {
+  updateAmpa(value: string): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, ampa: value }))
       .subscribe(
@@ -83,7 +83,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateEdemas(value: boolean): void {
+  updateEdemas(value: boolean): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, edemas: value }))
       .subscribe(
@@ -94,7 +94,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateDiuresis(value: number): void {
+  updateDiuresis(value: number): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, diuresis: value }))
       .subscribe(
@@ -105,7 +105,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateSerologias(value: boolean): void {
+  updateSerologias(value: boolean): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, serologias: value }))
       .subscribe(
@@ -116,7 +116,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateSerologiasDate(value: Date): void {
+  updateSerologiasDate(value: Date): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, serologiasDate: value }))
       .subscribe(
@@ -127,7 +127,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateSerologiasNotes(value: string): void {
+  updateSerologiasNotes(value: string): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, serologiasNotes: value }))
       .subscribe(
@@ -138,7 +138,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateEpo(value: boolean): void {
+  updateEpo(value: boolean): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, epo: value }))
       .subscribe(
@@ -149,7 +149,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateEpoNotes(value: string): void {
+  updateEpoNotes(value: string): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, epoNotes: value }))
       .subscribe(
@@ -160,7 +160,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateHvb(value: boolean): void {
+  updateHvb(value: boolean): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, hvb: value }))
       .subscribe(
@@ -171,7 +171,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateHvbDate(value: Date): void {
+  updateHvbDate(value: Date): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, hvbDate: value }))
       .subscribe(
@@ -182,7 +182,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateHvbInmunidad(value: boolean): void {
+  updateHvbInmunidad(value: boolean): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, hvbInmunidad: value }))
       .subscribe(
@@ -193,7 +193,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateFg(value: number): void {
+  updateFg(value: number): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, fg: value }))
       .subscribe(
@@ -204,7 +204,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateFgDate(value: Date): void {
+  updateFgDate(value: Date): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, fgDate: value }))
       .subscribe(
@@ -215,7 +215,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateSituacionFamiliar(value: string): void {
+  updateSituacionFamiliar(value: string): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, situacionFamiliar: value }))
       .subscribe(
@@ -226,7 +226,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateCalidadVida(value: string): void {
+  updateCalidadVida(value: string): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, calidadVida: value }))
       .subscribe(
@@ -237,7 +237,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateProcesoEducacion(value: boolean): void {
+  updateProcesoEducacion(value: boolean): void {
     const newPatient = new Patient({
       ...this.patient,
       procesoEducacion: value
@@ -248,7 +248,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       .subscribe(() => {}, error => this.handleError(error));
   }
 
-  public updateConservador(value: boolean): void {
+  updateConservador(value: boolean): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, conservador: value }))
       .subscribe(
@@ -259,7 +259,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateConservadorNotes(value: string): void {
+  updateConservadorNotes(value: string): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, conservadorNotes: value }))
       .subscribe(
@@ -270,7 +270,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateTratamientoRenalSustitutivo(value: string): void {
+  updateTratamientoRenalSustitutivo(value: string): void {
     const newPatient = new Patient({
       ...this.patient,
       tratamientoRenalSustitutivo: value
@@ -281,7 +281,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       .subscribe(() => {}, error => this.handleError(error));
   }
 
-  public updateTrasplanteAnticipado(value: boolean): void {
+  updateTrasplanteAnticipado(value: boolean): void {
     this.patientRepository
       .updatePatient(
         new Patient({ ...this.patient, trasplanteAnticipado: value })
@@ -294,7 +294,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateTrasplanteAnticipadoNotes(value: string): void {
+  updateTrasplanteAnticipadoNotes(value: string): void {
     this.patientRepository
       .updatePatient(
         new Patient({ ...this.patient, trasplanteAnticipadoNotes: value })
@@ -307,7 +307,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateCateterPeritoneal(value: string): void {
+  updateCateterPeritoneal(value: string): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, cateterPeritoneal: value }))
       .subscribe(
@@ -318,7 +318,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateHernias(value: boolean): void {
+  updateHernias(value: boolean): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, hernias: value }))
       .subscribe(
@@ -329,7 +329,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateHerniasNotes(value: string): void {
+  updateHerniasNotes(value: string): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, herniasNotes: value }))
       .subscribe(
@@ -340,7 +340,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateDialisisCoagulacion(value: boolean): void {
+  updateDialisisCoagulacion(value: boolean): void {
     this.patientRepository
       .updatePatient(
         new Patient({ ...this.patient, coagulacionDialisis: value })
@@ -353,7 +353,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateDialisisCoagulacionDate(value: Date): void {
+  updateDialisisCoagulacionDate(value: Date): void {
     this.patientRepository
       .updatePatient(
         new Patient({ ...this.patient, coagulacionDialisisDate: value })
@@ -366,7 +366,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateDialisisCoagulacionNotes(value: string): void {
+  updateDialisisCoagulacionNotes(value: string): void {
     this.patientRepository
       .updatePatient(
         new Patient({ ...this.patient, coagulacionDialisisNotes: value })
@@ -379,7 +379,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateHemodialisisCoagulacion(value: boolean): void {
+  updateHemodialisisCoagulacion(value: boolean): void {
     this.patientRepository
       .updatePatient(
         new Patient({ ...this.patient, coagulacionHemodialisis: value })
@@ -392,7 +392,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateHemodialisisCoagulacionDate(value: Date): void {
+  updateHemodialisisCoagulacionDate(value: Date): void {
     this.patientRepository
       .updatePatient(
         new Patient({ ...this.patient, coagulacionHemodialisisDate: value })
@@ -405,7 +405,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateHemodialisisCoagulacionNotes(value: string): void {
+  updateHemodialisisCoagulacionNotes(value: string): void {
     this.patientRepository
       .updatePatient(
         new Patient({ ...this.patient, coagulacionHemodialisisNotes: value })
@@ -418,7 +418,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateIngreso(value: Date): void {
+  updateIngreso(value: Date): void {
     this.patientRepository
       .updatePatient(new Patient({ ...this.patient, ingreso: value }))
       .subscribe(
@@ -429,7 +429,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateMedicacionAnticoagulanteDialisis(value: boolean): void {
+  updateMedicacionAnticoagulanteDialisis(value: boolean): void {
     this.patientRepository
       .updatePatient(
         new Patient({
@@ -445,7 +445,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updatConsentimientoInformadoDialisis(value: boolean): void {
+  updatConsentimientoInformadoDialisis(value: boolean): void {
     this.patientRepository
       .updatePatient(
         new Patient({ ...this.patient, consentimientoInformadoDialisis: value })
@@ -458,7 +458,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateMapeoFavi(value: boolean): void {
+  updateMapeoFavi(value: boolean): void {
     this.patientRepository
       .updatePatient(
         new Patient({
@@ -474,7 +474,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateMapeoFaviDate(value: Date): void {
+  updateMapeoFaviDate(value: Date): void {
     this.patientRepository
       .updatePatient(
         new Patient({
@@ -490,7 +490,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateMapeoFaviNotes(value: string): void {
+  updateMapeoFaviNotes(value: string): void {
     this.patientRepository
       .updatePatient(
         new Patient({
@@ -506,7 +506,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateFavi(value: boolean): void {
+  updateFavi(value: boolean): void {
     this.patientRepository
       .updatePatient(
         new Patient({
@@ -522,7 +522,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateFaviDate(value: Date): void {
+  updateFaviDate(value: Date): void {
     this.patientRepository
       .updatePatient(
         new Patient({
@@ -538,7 +538,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateFaviNotes(value: string): void {
+  updateFaviNotes(value: string): void {
     this.patientRepository
       .updatePatient(
         new Patient({
@@ -554,7 +554,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateCateterCentral(value: boolean): void {
+  updateCateterCentral(value: boolean): void {
     this.patientRepository
       .updatePatient(
         new Patient({
@@ -570,7 +570,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateCateterCentralDate(value: Date): void {
+  updateCateterCentralDate(value: Date): void {
     this.patientRepository
       .updatePatient(
         new Patient({
@@ -586,7 +586,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateCateterCentralNotes(value: string): void {
+  updateCateterCentralNotes(value: string): void {
     this.patientRepository
       .updatePatient(
         new Patient({
@@ -602,7 +602,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updateMedicacionAnticoagulanteHemodialisis(value: boolean): void {
+  updateMedicacionAnticoagulanteHemodialisis(value: boolean): void {
     this.patientRepository
       .updatePatient(
         new Patient({
@@ -618,7 +618,7 @@ export class PatientDetailBasicComponent implements OnChanges {
       );
   }
 
-  public updatConsentimientoInformadoHemodialisis(value: boolean): void {
+  updatConsentimientoInformadoHemodialisis(value: boolean): void {
     this.patientRepository
       .updatePatient(
         new Patient({

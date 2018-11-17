@@ -8,5 +8,5 @@ import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 })
 export class DashboardComponent {
   @HostBinding('class.app-dashboard')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 }

@@ -31,20 +31,20 @@ interface PatientAddForm {
 })
 export class PatientAddComponent {
   @HostBinding('class.app-patient-add')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
   @ViewChild('birthDateInput')
-  public readonly birthDateInput!: ElementRef;
+  readonly birthDateInput!: ElementRef;
 
-  public awaitingResponse = false;
+  awaitingResponse = false;
 
-  public readonly patientForm = this.formBuilder.group({
+  readonly patientForm = this.formBuilder.group({
     fullName: ['', Validators.required],
     medicalRecordId: ['', [Validators.required]],
     birthDate: ['', [Validators.required]]
   });
 
-  public constructor(
+  constructor(
     private readonly dialogRef: MatDialogRef<
       PatientAddComponent,
       DialogResult<Patient>
@@ -55,15 +55,15 @@ export class PatientAddComponent {
     private readonly eventLoop: EventLoop
   ) {}
 
-  public close(result?: DialogResult<Patient>): void {
+  close(result?: DialogResult<Patient>): void {
     this.dialogRef.close(result || {});
   }
 
-  public isAddPatientButtonEnabled(): boolean {
+  isAddPatientButtonEnabled(): boolean {
     return !this.awaitingResponse && !this.patientForm.invalid;
   }
 
-  public addPatient(formValues: PatientAddForm): void {
+  addPatient(formValues: PatientAddForm): void {
     this.awaitingResponse = true;
     this.patientStore
       .addPatient(
@@ -85,26 +85,26 @@ export class PatientAddComponent {
       );
   }
 
-  public onFocusBirthDatePicker(picker: MatDatepicker<Date>): void {
+  onFocusBirthDatePicker(picker: MatDatepicker<Date>): void {
     picker.open();
     this.eventLoop
       .onNextTick()
       .subscribe(() => this.birthDateInput.nativeElement.focus());
   }
 
-  public onOpenPicker(): void {
+  onOpenPicker(): void {
     this.eventLoop
       .onNextTick()
       .subscribe(() => this.birthDateInput.nativeElement.focus());
   }
 
-  public onClosePicker(): void {
+  onClosePicker(): void {
     this.eventLoop
       .onNextTick()
       .subscribe(() => this.birthDateInput.nativeElement.blur());
   }
 
-  public onTabKeydown(picker: MatDatepicker<Date>): void {
+  onTabKeydown(picker: MatDatepicker<Date>): void {
     if (picker && picker.opened) {
       picker.close();
     }

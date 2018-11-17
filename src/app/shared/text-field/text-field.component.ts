@@ -13,11 +13,11 @@ import {
 })
 export class ErcaTextFieldComponent {
   @HostBinding('class.erca-text-field')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
   @Input()
-  public title = '';
+  title = '';
 
   @Input()
-  public content = '';
+  content = '';
 }

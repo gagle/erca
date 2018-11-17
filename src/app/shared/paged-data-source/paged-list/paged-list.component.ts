@@ -27,26 +27,26 @@ import { ErcaPagedListItemDirective } from './paged-list-item.directive';
 })
 export class ErcaPagedListComponent<T = any, S = any> implements OnInit {
   @Input()
-  public dataSource!: PagedDataSource<T, S>;
+  dataSource!: PagedDataSource<T, S>;
   @Output()
-  public readonly onChanges = new EventEmitter<PagedViewStatus>(true);
+  readonly onChanges = new EventEmitter<PagedViewStatus>(true);
 
   @HostBinding('class.erca-paged-list')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
   @ContentChild(ErcaPagedListItemDirective, { read: TemplateRef })
-  public readonly itemTemplate!: ErcaPagedListItemDirective;
+  readonly itemTemplate!: ErcaPagedListItemDirective;
   @ContentChild(ErcaPagedListEmptyDirective, { read: TemplateRef })
-  public readonly emptyTemplate!: ErcaPagedListEmptyDirective;
+  readonly emptyTemplate!: ErcaPagedListEmptyDirective;
   @ContentChild(ErcaPagedListFetchingDirective, { read: TemplateRef })
-  public readonly fetchingTemplate!: ErcaPagedListFetchingDirective;
+  readonly fetchingTemplate!: ErcaPagedListFetchingDirective;
 
-  public status$!: Observable<PagedViewStatus>;
-  public items$!: Observable<T[]>;
+  status$!: Observable<PagedViewStatus>;
+  items$!: Observable<T[]>;
 
   private statusStore!: PagedViewStatusStore;
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.items$ = this.dataSource.onItems();
 
     this.statusStore = new PagedViewStatusStore(this.dataSource);
@@ -56,7 +56,7 @@ export class ErcaPagedListComponent<T = any, S = any> implements OnInit {
     });
   }
 
-  public onInfiniteScroll(): void {
+  onInfiniteScroll(): void {
     this.dataSource.nextPage();
   }
 }

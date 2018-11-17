@@ -9,7 +9,7 @@ import { TRUETA } from '../../icons';
 })
 export class ToolBarComponent {
   @HostBinding('class.app-tool-bar')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
-  public readonly TRUETA = TRUETA;
+  readonly TRUETA = TRUETA;
 }

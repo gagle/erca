@@ -69,21 +69,21 @@ export class InMemoryPatientRepository implements PatientRepository {
     })
   ];
 
-  public async setup(): Promise<void> {}
+  async setup(): Promise<void> {}
 
-  public getPatientById(id: string): Observable<Patient> {
+  getPatientById(id: string): Observable<Patient> {
     const patientFound = this.patients.find(patient => patient.id === id);
     return patientFound
       ? of(patientFound)
       : throwError(new PatientError(`Patient id '${id}' not found`));
   }
 
-  public getPatients(page: number, size: number): Observable<Patient[]> {
+  getPatients(page: number, size: number): Observable<Patient[]> {
     const offset = (page - 1) * size;
     return of(this.patients.slice(offset, offset + size));
   }
 
-  public getPatientsBySearch(
+  getPatientsBySearch(
     page: number,
     size: number,
     terms: string
@@ -101,7 +101,7 @@ export class InMemoryPatientRepository implements PatientRepository {
     );
   }
 
-  public addPatient(patient: Patient): Observable<Patient> {
+  addPatient(patient: Patient): Observable<Patient> {
     const newPatient = new Patient({
       ...patient,
       id: uuid()
@@ -110,7 +110,7 @@ export class InMemoryPatientRepository implements PatientRepository {
     return of(newPatient);
   }
 
-  public updatePatient(patient: Patient): Observable<Patient> {
+  updatePatient(patient: Patient): Observable<Patient> {
     const index = this.patients.findIndex(
       innerPatient => innerPatient.id === patient.id
     );

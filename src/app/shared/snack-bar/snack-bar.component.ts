@@ -22,23 +22,21 @@ import { SnackBarStatus } from './snack-bar-status';
 })
 export class ErcaSnackBarComponent implements OnInit {
   @HostBinding('class.erca-snack-bar')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
-  public statusIcon: SvgIcon | null = null;
+  statusIcon: SvgIcon | null = null;
 
-  public constructor(
-    @Inject(MAT_SNACK_BAR_DATA) public data: SnackBarComponentData
-  ) {}
+  constructor(@Inject(MAT_SNACK_BAR_DATA) public data: SnackBarComponentData) {}
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.setStatus();
   }
 
-  public getStatus(): SnackBarStatus {
+  getStatus(): SnackBarStatus {
     return this.data.status;
   }
 
-  public getStatusClassName(): string {
+  getStatusClassName(): string {
     return this.data.status.name;
   }
 

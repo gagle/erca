@@ -6,17 +6,14 @@ import { Patient } from '../../models/patient.model';
   providedIn: 'root'
 })
 export abstract class PatientRepository {
-  public abstract setup(): Promise<void>;
-  public abstract getPatientById(id: string): Observable<Patient>;
-  public abstract getPatients(
-    page: number,
-    size: number
-  ): Observable<Patient[]>;
-  public abstract getPatientsBySearch(
+  abstract setup(): Promise<void>;
+  abstract getPatientById(id: string): Observable<Patient>;
+  abstract getPatients(page: number, size: number): Observable<Patient[]>;
+  abstract getPatientsBySearch(
     page: number,
     size: number,
     terms: string
   ): Observable<Patient[]>;
-  public abstract addPatient(patient: Patient): Observable<Patient>;
-  public abstract updatePatient(patient: Patient): Observable<Patient>;
+  abstract addPatient(patient: Patient): Observable<Patient>;
+  abstract updatePatient(patient: Patient): Observable<Patient>;
 }

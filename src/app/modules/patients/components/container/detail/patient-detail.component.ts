@@ -21,18 +21,18 @@ import { PatientStore } from '../../../services/patient-store.service';
 })
 export class PatientDetailComponent implements OnInit, OnDestroy {
   @HostBinding('class.app-patient-detail')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
-  public patient$!: Observable<Patient>;
+  patient$!: Observable<Patient>;
 
   private readonly destroy$ = new Subject<void>();
 
-  public constructor(
+  constructor(
     private readonly route: ActivatedRoute,
     private readonly patientStore: PatientStore
   ) {}
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.patient$ = this.route.paramMap.pipe(
       takeUntil(this.destroy$),
       map(params => params.get('patientId')!),
@@ -40,7 +40,7 @@ export class PatientDetailComponent implements OnInit, OnDestroy {
     );
   }
 
-  public ngOnDestroy(): void {
+  ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }

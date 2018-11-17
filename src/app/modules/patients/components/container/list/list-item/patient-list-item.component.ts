@@ -18,14 +18,14 @@ import { Patient } from '../../../../models/patient.model';
 })
 export class PatientListItemComponent implements OnChanges {
   @HostBinding('class.app-patient-list-item')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
   @Input()
-  public patient!: Patient;
+  patient!: Patient;
   @Input()
-  public highlightedText = '';
+  highlightedText = '';
 
-  public ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(changes: SimpleChanges): void {
     assertTruthy(
       changes.patient.currentValue,
       new RequiredInputError('Missing patient')

@@ -21,18 +21,18 @@ import { SvgIcon, SvgPath } from './svg-icon';
 })
 export class ErcaSvgIconComponent implements OnInit, OnChanges {
   @HostBinding('class.erca-svg-icon')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
   @Input()
-  public icon!: SvgIcon;
+  icon!: SvgIcon;
   @Input()
-  public title = '';
+  title = '';
 
   private svgSelection!: Selection<SVGSVGElement, SvgPath, HTMLElement, any>;
 
-  public constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef) {}
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.svgSelection = select<BaseType, SvgPath>(this.elementRef.nativeElement)
       .append('svg')
       .attr('class', 'svg');
@@ -40,7 +40,7 @@ export class ErcaSvgIconComponent implements OnInit, OnChanges {
     this.draw();
   }
 
-  public ngOnChanges(): void {
+  ngOnChanges(): void {
     if (this.svgSelection) {
       this.draw();
     }

@@ -9,9 +9,9 @@ import { Patient } from '../../../../models/patient.model';
 export class TextReportService {
   private readonly dateFormat = 'dd/MM/yyyy';
 
-  public constructor(private datePipe: DatePipe) {}
+  constructor(private datePipe: DatePipe) {}
 
-  public create(patient: Patient): string {
+  create(patient: Patient): string {
     const report = `${this.createPatientSummary(patient)}
 
 ${this.createBasicInformation(patient)}

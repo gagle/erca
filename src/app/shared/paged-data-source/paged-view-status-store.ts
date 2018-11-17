@@ -14,7 +14,7 @@ export class PagedViewStatusStore {
   private awaitingFirstFetch = true;
   private awaitingFirstFetchFinish = false;
 
-  public constructor(dataSource: PagedDataSource) {
+  constructor(dataSource: PagedDataSource) {
     dataSource.onChanges().subscribe(dataSourceStatus => {
       this.status = this.getCurrentStatus(dataSourceStatus);
 
@@ -38,7 +38,7 @@ export class PagedViewStatusStore {
     });
   }
 
-  public onStatus(): Observable<PagedViewStatus> {
+  onStatus(): Observable<PagedViewStatus> {
     return this.status$.asObservable();
   }
 

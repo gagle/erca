@@ -27,21 +27,21 @@ import {
 })
 export class PatientDetailSummaryComponent implements OnChanges {
   @HostBinding('class.app-patient-detail-summary')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
   @Input()
-  public patient!: Patient;
+  patient!: Patient;
 
-  public constructor(private readonly dialog: MatDialog) {}
+  constructor(private readonly dialog: MatDialog) {}
 
-  public ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(changes: SimpleChanges): void {
     assertTruthy(
       changes.patient.currentValue,
       new RequiredInputError('Missing patient')
     );
   }
 
-  public export(): void {
+  export(): void {
     assertNotNil(
       this.patient.id,
       new IllegalArgumentError(

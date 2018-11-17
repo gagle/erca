@@ -20,41 +20,41 @@ import { debounceTime } from 'rxjs/operators';
 })
 export class PatientFieldNumberComponent implements OnInit {
   @HostBinding('class.app-patient-field-number')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
   @HostBinding('style.width')
-  public width!: string;
+  width!: string;
 
-  public readonly form = this.formBuilder.group({
+  readonly form = this.formBuilder.group({
     number: ['']
   });
 
   @Input()
-  public min = -Infinity;
+  min = -Infinity;
   @Input()
-  public max = Infinity;
+  max = Infinity;
   @Input()
-  public unit = '';
+  unit = '';
 
   @Output()
-  public readonly update = new EventEmitter<number>(true);
+  readonly update = new EventEmitter<number>(true);
 
   private readonly debounceTimeMs = 300;
 
   @Input()
-  public get value(): number | null {
+  get value(): number | null {
     return this._value;
   }
-  public set value(val: number | null) {
+  set value(val: number | null) {
     this.getControl().setValue(val, { emitEvent: false });
     this._value = val;
   }
 
   private _value: number | null = null;
 
-  public constructor(private readonly formBuilder: FormBuilder) {}
+  constructor(private readonly formBuilder: FormBuilder) {}
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.getControl()
       .valueChanges.pipe(debounceTime(this.debounceTimeMs))
       .subscribe((text: string) => {

@@ -21,28 +21,28 @@ export class PatientStore {
   private readonly patientSource: PagedDataSource<Patient, PatientListFilter>;
   private readonly patient$ = new ReplaySubject<Patient>(1);
 
-  public constructor(private patientRepository: PatientRepository) {
+  constructor(private patientRepository: PatientRepository) {
     this.patientSource = new PagedDataSource<Patient, PatientListFilter>({
       pageSize: this.patientListPageSize,
       fetch: this.getPatients.bind(this)
     });
   }
 
-  public getPatientSource(): PagedDataSource<Patient, PatientListFilter> {
+  getPatientSource(): PagedDataSource<Patient, PatientListFilter> {
     return this.patientSource;
   }
 
-  public onPatient(): Observable<Patient> {
+  onPatient(): Observable<Patient> {
     return this.patient$.asObservable();
   }
 
-  public addPatient(patient: Patient): Observable<Patient> {
+  addPatient(patient: Patient): Observable<Patient> {
     return this.patientRepository
       .addPatient(patient)
       .pipe(tap(() => this.patientSource.refresh()));
   }
 
-  public findPatientById(id: string): Observable<Patient> {
+  findPatientById(id: string): Observable<Patient> {
     const patient$ = this.patientRepository
       .getPatientById(id)
       .pipe(shareReplay(1));

@@ -18,16 +18,16 @@ import { MatButtonToggleChange } from '@angular/material';
 })
 export class PatientFieldRadiologySurgerySelectorComponent {
   @HostBinding('class.app-patient-field-radiology-surgery-selector')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
   @Output()
-  public readonly update = new EventEmitter<string>(true);
+  readonly update = new EventEmitter<string>(true);
 
   @Input()
-  public get value(): string {
+  get value(): string {
     return this._value[0];
   }
-  public set value(val: string) {
+  set value(val: string) {
     if (!this.emittedChange) {
       this._value = [val];
     }
@@ -36,7 +36,7 @@ export class PatientFieldRadiologySurgerySelectorComponent {
   private _value: string[] = [];
   private emittedChange = false;
 
-  public onChange(event: MatButtonToggleChange): void {
+  onChange(event: MatButtonToggleChange): void {
     this.emittedChange = true;
 
     const toggle = event.source;

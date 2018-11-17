@@ -36,28 +36,28 @@ export class ErcaInputSearchComponent implements OnInit, OnChanges {
   }
 
   @HostBinding('class.erca-input-search')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
   @ViewChild('searchInput')
-  public searchInput!: ElementRef;
+  searchInput!: ElementRef;
 
   @Input()
-  public value: string | null = '';
+  value: string | null = '';
 
   @Input()
-  public placeholder = '';
+  placeholder = '';
   @Input()
-  public enableBarcodeScanner = false;
+  enableBarcodeScanner = false;
 
   @Output()
-  public readonly onSearch = new EventEmitter<string>(true);
+  readonly onSearch = new EventEmitter<string>(true);
   @Output()
-  public readonly onBarcode = new EventEmitter<InputValues>(true);
+  readonly onBarcode = new EventEmitter<InputValues>(true);
 
-  public readonly searchIcon = SEARCH;
-  public readonly clearIcon = CLOSE_EXIT;
+  readonly searchIcon = SEARCH;
+  readonly clearIcon = CLOSE_EXIT;
 
-  public readonly searchForm: FormGroup = this.formBuilder.group({
+  readonly searchForm: FormGroup = this.formBuilder.group({
     search: ['']
   });
 
@@ -65,9 +65,9 @@ export class ErcaInputSearchComponent implements OnInit, OnChanges {
   private previousValue = '';
   private onClear$ = new Subject<void>();
 
-  public constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) {}
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     // Non-barcode input changes
     merge(
       // Debounce manual input changes
@@ -85,7 +85,7 @@ export class ErcaInputSearchComponent implements OnInit, OnChanges {
       });
   }
 
-  public ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(changes: SimpleChanges): void {
     if (
       changes.value &&
       changes.value.previousValue !== changes.value.currentValue
@@ -94,13 +94,13 @@ export class ErcaInputSearchComponent implements OnInit, OnChanges {
     }
   }
 
-  public clear(): void {
+  clear(): void {
     // Clear event should not be debounced, it should emit immediately
     this.searchControl.setValue('', { emitEvent: false });
     this.onClear$.next();
   }
 
-  public displayClearIcon(): boolean {
+  displayClearIcon(): boolean {
     return !!this.searchControl.value;
   }
 }

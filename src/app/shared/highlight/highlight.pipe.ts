@@ -5,9 +5,9 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   name: 'ercaHighlight'
 })
 export class ErcaHighlightPipe implements PipeTransform {
-  public constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer) {}
 
-  public transform(
+  transform(
     text: string,
     highlightedText: string,
     styleClass: string

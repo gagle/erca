@@ -18,19 +18,19 @@ import { MatButtonToggleChange } from '@angular/material';
 })
 export class PatientFieldYesNoComponent {
   @HostBinding('class.app-patient-field-yes-no')
-  public readonly hostClass = true;
+  readonly hostClass = true;
 
   @Output()
-  public readonly update = new EventEmitter<boolean>(true);
+  readonly update = new EventEmitter<boolean>(true);
 
   @Input()
-  public multiple = true;
+  multiple = true;
 
   @Input()
-  public get value(): boolean {
+  get value(): boolean {
     return this._value[0];
   }
-  public set value(val: boolean) {
+  set value(val: boolean) {
     if (!this.emittedChange) {
       this._value = [this.multiple ? val : !!val];
     }
@@ -39,7 +39,7 @@ export class PatientFieldYesNoComponent {
   private _value: boolean[] = this.multiple ? [] : [false];
   private emittedChange = false;
 
-  public onChange(event: MatButtonToggleChange): void {
+  onChange(event: MatButtonToggleChange): void {
     this.emittedChange = true;
 
     if (this.multiple) {
