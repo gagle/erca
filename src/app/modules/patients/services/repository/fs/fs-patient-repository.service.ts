@@ -73,7 +73,6 @@ export class FsPatientRepository implements PatientRepository {
   }
 
   updatePatient(patient: Patient): Observable<Patient> {
-    console.log(patient);
     const index = this.patients.findIndex(
       innerPatient => innerPatient.id === patient.id
     );

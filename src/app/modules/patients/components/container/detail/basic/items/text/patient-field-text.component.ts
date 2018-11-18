@@ -8,7 +8,7 @@ import {
   Output,
   ViewEncapsulation
 } from '@angular/core';
-import { AbstractControl, FormBuilder } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { EDIT } from '../../../../../../../../icons';
 
@@ -25,9 +25,7 @@ export class PatientFieldTextComponent implements OnInit {
 
   readonly EDIT = EDIT;
 
-  readonly form = this.formBuilder.group({
-    text: ['']
-  });
+  readonly textControl = new FormControl('');
 
   @Output()
   readonly update = new EventEmitter<string>(true);
@@ -39,23 +37,17 @@ export class PatientFieldTextComponent implements OnInit {
     return this._value;
   }
   set value(val: string | null) {
-    this.getControl().setValue(val, { emitEvent: false });
+    this.textControl.setValue(val, { emitEvent: false });
     this._value = val;
   }
 
   private _value: string | null = null;
 
-  constructor(private readonly formBuilder: FormBuilder) {}
-
   ngOnInit(): void {
-    this.getControl()
-      .valueChanges.pipe(debounceTime(this.debounceTimeMs))
+    this.textControl.valueChanges
+      .pipe(debounceTime(this.debounceTimeMs))
       .subscribe((text: string) => {
         this.update.emit(text);
       });
-  }
-
-  private getControl(): AbstractControl {
-    return this.form.get('text')!;
   }
 }

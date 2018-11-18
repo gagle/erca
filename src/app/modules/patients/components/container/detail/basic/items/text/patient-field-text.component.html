@@ -1,6 +1,6 @@
-<div [formGroup]="form" class="form">
+<div class="form">
   <mat-form-field class="form-field">
-    <textarea matTextareaAutosize matInput type="text" autocomplete="off" formControlName="text"></textarea>
+    <textarea matTextareaAutosize matInput type="text" autocomplete="off" [formControl]="textControl"></textarea>
     <erca-svg-icon [icon]="EDIT" matSuffix></erca-svg-icon>
   </mat-form-field>
 </div>

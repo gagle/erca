@@ -40,598 +40,368 @@ export class PatientDetailBasicComponent implements OnChanges {
   }
 
   updateCausaErc(value: string): void {
+    this.patient = new Patient({ ...this.patient, causaErc: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, causaErc: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateApetito(value: boolean): void {
+    this.patient = new Patient({ ...this.patient, apetito: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, apetito: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updatePrurito(value: boolean): void {
+    this.patient = new Patient({ ...this.patient, prurito: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, prurito: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateAmpa(value: string): void {
+    this.patient = new Patient({ ...this.patient, ampa: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, ampa: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateEdemas(value: boolean): void {
+    this.patient = new Patient({ ...this.patient, edemas: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, edemas: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateDiuresis(value: number): void {
+    this.patient = new Patient({ ...this.patient, diuresis: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, diuresis: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateSerologias(value: boolean): void {
+    this.patient = new Patient({ ...this.patient, serologias: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, serologias: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateSerologiasDate(value: Date): void {
+    this.patient = new Patient({ ...this.patient, serologiasDate: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, serologiasDate: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateSerologiasNotes(value: string): void {
+    this.patient = new Patient({ ...this.patient, serologiasNotes: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, serologiasNotes: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateEpo(value: boolean): void {
+    this.patient = new Patient({ ...this.patient, epo: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, epo: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateEpoNotes(value: string): void {
+    this.patient = new Patient({ ...this.patient, epoNotes: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, epoNotes: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateHvb(value: boolean): void {
+    this.patient = new Patient({ ...this.patient, hvb: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, hvb: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateHvbDate(value: Date): void {
+    this.patient = new Patient({ ...this.patient, hvbDate: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, hvbDate: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateHvbInmunidad(value: boolean): void {
+    this.patient = new Patient({ ...this.patient, hvbInmunidad: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, hvbInmunidad: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateFg(value: number): void {
+    this.patient = new Patient({ ...this.patient, fg: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, fg: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateFgDate(value: Date): void {
+    this.patient = new Patient({ ...this.patient, fgDate: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, fgDate: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateSituacionFamiliar(value: string): void {
+    this.patient = new Patient({ ...this.patient, situacionFamiliar: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, situacionFamiliar: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateCalidadVida(value: string): void {
+    this.patient = new Patient({ ...this.patient, calidadVida: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, calidadVida: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateProcesoEducacion(value: boolean): void {
-    const newPatient = new Patient({
-      ...this.patient,
-      procesoEducacion: value
-    });
-    this.patient = newPatient;
+    this.patient = new Patient({ ...this.patient, procesoEducacion: value });
     this.patientRepository
-      .updatePatient(newPatient)
+      .updatePatient(this.patient)
       .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateConservador(value: boolean): void {
+    this.patient = new Patient({ ...this.patient, conservador: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, conservador: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateConservadorNotes(value: string): void {
+    this.patient = new Patient({ ...this.patient, conservadorNotes: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, conservadorNotes: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateTratamientoRenalSustitutivo(value: string): void {
-    const newPatient = new Patient({
+    this.patient = new Patient({
       ...this.patient,
       tratamientoRenalSustitutivo: value
     });
-    this.patient = newPatient;
     this.patientRepository
-      .updatePatient(newPatient)
+      .updatePatient(this.patient)
       .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateTrasplanteAnticipado(value: boolean): void {
+    this.patient = new Patient({
+      ...this.patient,
+      trasplanteAnticipado: value
+    });
     this.patientRepository
-      .updatePatient(
-        new Patient({ ...this.patient, trasplanteAnticipado: value })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateTrasplanteAnticipadoNotes(value: string): void {
+    this.patient = new Patient({
+      ...this.patient,
+      trasplanteAnticipadoNotes: value
+    });
     this.patientRepository
-      .updatePatient(
-        new Patient({ ...this.patient, trasplanteAnticipadoNotes: value })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateCateterPeritoneal(value: string): void {
+    this.patient = new Patient({ ...this.patient, cateterPeritoneal: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, cateterPeritoneal: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateHernias(value: boolean): void {
+    this.patient = new Patient({ ...this.patient, hernias: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, hernias: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateHerniasNotes(value: string): void {
+    this.patient = new Patient({ ...this.patient, herniasNotes: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, herniasNotes: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateDialisisCoagulacion(value: boolean): void {
+    this.patient = new Patient({ ...this.patient, coagulacionDialisis: value });
     this.patientRepository
-      .updatePatient(
-        new Patient({ ...this.patient, coagulacionDialisis: value })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateDialisisCoagulacionDate(value: Date): void {
+    this.patient = new Patient({
+      ...this.patient,
+      coagulacionDialisisDate: value
+    });
     this.patientRepository
-      .updatePatient(
-        new Patient({ ...this.patient, coagulacionDialisisDate: value })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateDialisisCoagulacionNotes(value: string): void {
+    this.patient = new Patient({
+      ...this.patient,
+      coagulacionDialisisNotes: value
+    });
     this.patientRepository
-      .updatePatient(
-        new Patient({ ...this.patient, coagulacionDialisisNotes: value })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateHemodialisisCoagulacion(value: boolean): void {
+    this.patient = new Patient({
+      ...this.patient,
+      coagulacionHemodialisis: value
+    });
     this.patientRepository
-      .updatePatient(
-        new Patient({ ...this.patient, coagulacionHemodialisis: value })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateHemodialisisCoagulacionDate(value: Date): void {
+    this.patient = new Patient({
+      ...this.patient,
+      coagulacionHemodialisisDate: value
+    });
     this.patientRepository
-      .updatePatient(
-        new Patient({ ...this.patient, coagulacionHemodialisisDate: value })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateHemodialisisCoagulacionNotes(value: string): void {
+    this.patient = new Patient({
+      ...this.patient,
+      coagulacionHemodialisisNotes: value
+    });
     this.patientRepository
-      .updatePatient(
-        new Patient({ ...this.patient, coagulacionHemodialisisNotes: value })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateIngreso(value: Date): void {
+    this.patient = new Patient({ ...this.patient, ingreso: value });
     this.patientRepository
-      .updatePatient(new Patient({ ...this.patient, ingreso: value }))
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateMedicacionAnticoagulanteDialisis(value: boolean): void {
+    this.patient = new Patient({
+      ...this.patient,
+      medicacionAnticoagulanteDialisis: value
+    });
     this.patientRepository
-      .updatePatient(
-        new Patient({
-          ...this.patient,
-          medicacionAnticoagulanteDialisis: value
-        })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updatConsentimientoInformadoDialisis(value: boolean): void {
+    this.patient = new Patient({
+      ...this.patient,
+      consentimientoInformadoDialisis: value
+    });
     this.patientRepository
-      .updatePatient(
-        new Patient({ ...this.patient, consentimientoInformadoDialisis: value })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateMapeoFavi(value: boolean): void {
+    this.patient = new Patient({ ...this.patient, mapeoFavi: value });
     this.patientRepository
-      .updatePatient(
-        new Patient({
-          ...this.patient,
-          mapeoFavi: value
-        })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateMapeoFaviDate(value: Date): void {
+    this.patient = new Patient({ ...this.patient, mapeoFaviDate: value });
     this.patientRepository
-      .updatePatient(
-        new Patient({
-          ...this.patient,
-          mapeoFaviDate: value
-        })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateMapeoFaviNotes(value: string): void {
+    this.patient = new Patient({ ...this.patient, mapeoFaviNotes: value });
     this.patientRepository
-      .updatePatient(
-        new Patient({
-          ...this.patient,
-          mapeoFaviNotes: value
-        })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateFavi(value: boolean): void {
+    this.patient = new Patient({ ...this.patient, favi: value });
     this.patientRepository
-      .updatePatient(
-        new Patient({
-          ...this.patient,
-          favi: value
-        })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateFaviDate(value: Date): void {
+    this.patient = new Patient({ ...this.patient, faviDate: value });
     this.patientRepository
-      .updatePatient(
-        new Patient({
-          ...this.patient,
-          faviDate: value
-        })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateFaviNotes(value: string): void {
+    this.patient = new Patient({ ...this.patient, faviNotes: value });
     this.patientRepository
-      .updatePatient(
-        new Patient({
-          ...this.patient,
-          faviNotes: value
-        })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateCateterCentral(value: boolean): void {
+    this.patient = new Patient({ ...this.patient, cateterCentral: value });
     this.patientRepository
-      .updatePatient(
-        new Patient({
-          ...this.patient,
-          cateterCentral: value
-        })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateCateterCentralDate(value: Date): void {
+    this.patient = new Patient({ ...this.patient, cateterCentralDate: value });
     this.patientRepository
-      .updatePatient(
-        new Patient({
-          ...this.patient,
-          cateterCentralDate: value
-        })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateCateterCentralNotes(value: string): void {
+    this.patient = new Patient({ ...this.patient, cateterCentralNotes: value });
     this.patientRepository
-      .updatePatient(
-        new Patient({
-          ...this.patient,
-          cateterCentralNotes: value
-        })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updateMedicacionAnticoagulanteHemodialisis(value: boolean): void {
+    this.patient = new Patient({
+      ...this.patient,
+      medicacionAnticoagulanteHemodialisis: value
+    });
     this.patientRepository
-      .updatePatient(
-        new Patient({
-          ...this.patient,
-          medicacionAnticoagulanteHemodialisis: value
-        })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   updatConsentimientoInformadoHemodialisis(value: boolean): void {
+    this.patient = new Patient({
+      ...this.patient,
+      consentimientoInformadoHemodialisis: value
+    });
     this.patientRepository
-      .updatePatient(
-        new Patient({
-          ...this.patient,
-          consentimientoInformadoHemodialisis: value
-        })
-      )
-      .subscribe(
-        patient => {
-          this.patient = patient;
-        },
-        error => this.handleError(error)
-      );
+      .updatePatient(this.patient)
+      .subscribe(() => {}, error => this.handleError(error));
   }
 
   private handleError(error: Error): void {

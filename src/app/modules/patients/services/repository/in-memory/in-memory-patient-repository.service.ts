@@ -116,10 +116,8 @@ export class InMemoryPatientRepository implements PatientRepository {
     );
 
     if (index === -1) {
-      console.log('entra');
       return this.addPatient(patient);
     } else {
-      console.log('ok');
       const patients = [...this.patients];
       patients.splice(index, 0, patient);
       this.patients = patients;
