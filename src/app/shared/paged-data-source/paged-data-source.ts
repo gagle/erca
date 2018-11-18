@@ -35,6 +35,21 @@ export class PagedDataSource<T = any, S = any> {
   // tslint:disable-next-line:max-line-length
   static readonly INITIAL_STATUS = PagedDataSource.createInitialDataSourceStatus();
 
+  private static createInitialDataSourceStatus(): PagedDataSourceStatus {
+    return {
+      fetching: false,
+      fetchingPage: false,
+      end: false,
+      empty: false,
+      previousCancelled: false,
+      fetchOriginChange: {
+        predicate: false,
+        reset: false,
+        page: false
+      }
+    };
+  }
+
   private items: T[] = [];
   private items$ = new ReplaySubject<T[]>(1);
   private predicate = Immutable.Map<string, any>();
@@ -107,21 +122,6 @@ export class PagedDataSource<T = any, S = any> {
         },
         () => {}
       );
-  }
-
-  private static createInitialDataSourceStatus(): PagedDataSourceStatus {
-    return {
-      fetching: false,
-      fetchingPage: false,
-      end: false,
-      empty: false,
-      previousCancelled: false,
-      fetchOriginChange: {
-        predicate: false,
-        reset: false,
-        page: false
-      }
-    };
   }
 
   onItems(): Observable<T[]> {
